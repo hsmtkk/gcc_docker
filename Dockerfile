@@ -19,7 +19,7 @@ RUN ../gcc-10.2.0/configure \
  --enable-languages=c,c++ \
  --prefix=/usr/local
 
-RUN make -j4
+RUN make -j8
 
 RUN make install
 
