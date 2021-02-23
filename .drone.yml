@@ -15,6 +15,7 @@ steps:
   - name: download
     image: ubuntu:20.04
     commands:
+      - apt-get -y update
       - apt-get -y install curl
       - ./download.sh
   - name: docker
