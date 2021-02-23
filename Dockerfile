@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:20.04 AS builder
 
 ADD gcc-10.2.0.tar.gz /usr/local/src
 
@@ -17,9 +17,13 @@ WORKDIR /usr/local/src/objdir
 RUN ../gcc-10.2.0/configure \
  --disable-multilib \
  --enable-languages=c,c++ \
- --prefix=/usr/local
+ --prefix=/opt
 
 RUN make -j8
 
 RUN make install
+
+FROM ubuntu:20.04
+
+COPY --from=builder /opt /opt
 
