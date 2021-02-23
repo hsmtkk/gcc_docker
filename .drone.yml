@@ -1,0 +1,22 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: yml_lint
+    image: sdesbure/yamllint:latest
+    commands:
+      - yamllint .drone.yml
+  - name: docker_lint
+    image: hadolint/hadolint:v1.22.1
+    commands:
+      - hadolint Dockerfile
+  - name: docker
+    image: plugins/docker:19.03.8
+    settings:
+      username: hsmtkk
+      password:
+        from_secret: docker_hub_token
+      repo: hsmtkk/gcc_docker
+
