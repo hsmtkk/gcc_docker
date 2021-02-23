@@ -1,6 +1,6 @@
 FROM ubuntu:20.04 AS builder
 
-ADD gcc-10.2.0.tar.gz /usr/local/src
+ADD vendor/gcc-10.2.0.tar.gz /usr/local/src
 
 RUN apt-get -y update \
  && apt-get -y --no-install-recommends install curl gcc g++ make \
