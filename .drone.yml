@@ -11,7 +11,7 @@ steps:
   - name: docker_lint
     image: hadolint/hadolint:v1.22.1
     commands:
-      - hadolint Dockerfile
+      - hadolint --ignore DL3008 Dockerfile
   - name: docker
     image: plugins/docker:19.03.8
     settings:
