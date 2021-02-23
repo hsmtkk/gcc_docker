@@ -19,4 +19,3 @@ steps:
       password:
         from_secret: docker_hub_token
       repo: hsmtkk/gcc_docker
-
